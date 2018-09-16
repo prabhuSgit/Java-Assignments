@@ -32,12 +32,14 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         person = new Person();
+        /*
         demographic = new Demographic();
         address = new Address();
         savingBank = new Bank();
         checkingBank = new Bank();
         driverLicense = new DriverLicense();
         medicalRecord = new MedicalRecord();
+        */
                 
     }
 
@@ -268,6 +270,7 @@ public class MainJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

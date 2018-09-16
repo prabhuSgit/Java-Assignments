@@ -43,6 +43,7 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         CreateBtn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         alergy1TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +92,9 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setText("Kindly fill the below below details:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,16 +104,19 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(alergy3TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
-                            .addComponent(alergy2TextField)
-                            .addComponent(alergy1TextField)
-                            .addComponent(mrnNbrTextField)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(alergy3TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                                    .addComponent(alergy2TextField)
+                                    .addComponent(alergy1TextField)
+                                    .addComponent(mrnNbrTextField)))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(490, 490, 490)
                         .addComponent(CreateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,7 +130,9 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(mrnNbrTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,7 +150,7 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
                     .addComponent(alergy3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(85, 85, 85)
                 .addComponent(CreateBtn)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -173,7 +182,7 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
         medicalRecord.setAlergy2(alergy2TextField.getText());
         medicalRecord.setAlergy3(alergy3TextField.getText());
         */
-        JOptionPane.showMessageDialog(null, "Information submitted successfully!");
+        JOptionPane.showMessageDialog(null, "Information submitted successfully!" + " " + "Thank you for submitting your details. Feel free to view your Report.");
     }//GEN-LAST:event_CreateBtnActionPerformed
 
 
@@ -183,6 +192,7 @@ public class CreateMedicalRecordJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField alergy2TextField;
     private javax.swing.JTextField alergy3TextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
