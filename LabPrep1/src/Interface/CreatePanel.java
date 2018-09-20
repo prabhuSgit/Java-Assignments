@@ -43,8 +43,8 @@ public class CreatePanel extends javax.swing.JPanel {
         availNumTextField = new javax.swing.JTextField();
         descriptionTextField = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        availNumTextField1 = new javax.swing.JTextField();
-        priceTextField1 = new javax.swing.JTextField();
+        describtionTextField = new javax.swing.JTextField();
+        supplierRegTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         nameTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -95,15 +95,15 @@ public class CreatePanel extends javax.swing.JPanel {
             }
         });
 
-        availNumTextField1.addActionListener(new java.awt.event.ActionListener() {
+        describtionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                availNumTextField1ActionPerformed(evt);
+                describtionTextFieldActionPerformed(evt);
             }
         });
 
-        priceTextField1.addActionListener(new java.awt.event.ActionListener() {
+        supplierRegTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceTextField1ActionPerformed(evt);
+                supplierRegTextFieldActionPerformed(evt);
             }
         });
 
@@ -156,8 +156,8 @@ public class CreatePanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(priceTextField1)
-                            .addComponent(availNumTextField1)))
+                            .addComponent(supplierRegTextField)
+                            .addComponent(describtionTextField)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jLabel1)))
@@ -194,10 +194,10 @@ public class CreatePanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(priceTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(supplierRegTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(availNumTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(describtionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,6 +217,9 @@ public class CreatePanel extends javax.swing.JPanel {
         product.setPrice(priceTextField.getText());
         product.setAvailNum(availNumTextField.getText());
         product.setDescription(descriptionTextField.getText());
+        product.getSupplier().setSupplierName(nameTextField1.getText());
+        product.getSupplier().setSupplierRegNbr(supplierRegTextField.getText());
+        product.getSupplier().setSupplierDescription(describtionTextField.getText());
         // prompt user that product was successfully ceated
         JOptionPane.showMessageDialog(null, "product successfully ceated");
     }//GEN-LAST:event_createBtnActionPerformed
@@ -233,13 +236,13 @@ public class CreatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_descriptionTextFieldActionPerformed
 
-    private void availNumTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availNumTextField1ActionPerformed
+    private void describtionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_describtionTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_availNumTextField1ActionPerformed
+    }//GEN-LAST:event_describtionTextFieldActionPerformed
 
-    private void priceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField1ActionPerformed
+    private void supplierRegTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierRegTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_priceTextField1ActionPerformed
+    }//GEN-LAST:event_supplierRegTextFieldActionPerformed
 
     private void nameTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextField1ActionPerformed
         // TODO add your handling code here:
@@ -248,8 +251,8 @@ public class CreatePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField availNumTextField;
-    private javax.swing.JTextField availNumTextField1;
     private javax.swing.JButton createBtn;
+    private javax.swing.JTextField describtionTextField;
     private javax.swing.JTextField descriptionTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -264,6 +267,6 @@ public class CreatePanel extends javax.swing.JPanel {
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField nameTextField1;
     private javax.swing.JTextField priceTextField;
-    private javax.swing.JTextField priceTextField1;
+    private javax.swing.JTextField supplierRegTextField;
     // End of variables declaration//GEN-END:variables
 }

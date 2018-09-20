@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Interface;
 
 import Business.Address;
@@ -59,6 +60,35 @@ public class MainJFrame extends javax.swing.JFrame {
         
         PersonView personView = new PersonView(person);
         jScrollPane1.setColumnHeaderView(personView);
+        
+        System.out.println("Person");
+        System.out.println("1.   " + person.getFirstName());
+        System.out.println("2.   " + person.getLastName());
+        System.out.println("3.   " + person.getDob());
+        
+        System.out.println("Work Address");
+        System.out.println("1.   " + person.getWorkAddress().getAddressLine1());
+        System.out.println("2.   " + person.getWorkAddress().getAddressLine2());
+        System.out.println("3.   " + person.getWorkAddress().getCity());
+        System.out.println("4.   " + person.getWorkAddress().getCountry());
+        System.out.println("5.   " + person.getWorkAddress().getState());
+        System.out.println("6.   " + person.getWorkAddress().getZipcode());
+        
+        System.out.println("Home Address");
+        System.out.println("1.   " + person.getLocalAddress().getAddressLine1());
+        System.out.println("2.   " + person.getLocalAddress().getAddressLine2());
+        System.out.println("3.   " + person.getLocalAddress().getCity());
+        System.out.println("4.   " + person.getLocalAddress().getCountry());
+        System.out.println("5.   " + person.getLocalAddress().getState());
+        System.out.println("6.   " + person.getLocalAddress().getZipcode());
+        
+        System.out.println("Local Address");
+        System.out.println("1.   " + person.getHomeAddress().getAddressLine1());
+        System.out.println("2.   " + person.getHomeAddress().getAddressLine2());
+        System.out.println("3.   " + person.getHomeAddress().getCity());
+        System.out.println("4.   " + person.getHomeAddress().getCountry());
+        System.out.println("5.   " + person.getHomeAddress().getState());
+        System.out.println("6.   " + person.getHomeAddress().getZipcode());
     }
 
     /**
