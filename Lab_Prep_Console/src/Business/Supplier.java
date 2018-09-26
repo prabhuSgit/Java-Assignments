@@ -12,7 +12,7 @@ package Business;
 public class Supplier {
     
     private String supplierName;
-    private String supplierRegNbr;
+    private Integer supplierRegNbr;
     private String supplierDescription;
 
     public String getSupplierName() {
@@ -23,11 +23,11 @@ public class Supplier {
         this.supplierName = supplierName;
     }
 
-    public String getSupplierRegNbr() {
+    public Integer getSupplierRegNbr() {
         return supplierRegNbr;
     }
 
-    public void setSupplierRegNbr(String supplierRegNbr) {
+    public void setSupplierRegNbr(Integer supplierRegNbr) {
         this.supplierRegNbr = supplierRegNbr;
     }
 

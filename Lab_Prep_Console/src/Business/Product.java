@@ -11,8 +11,8 @@ package Business;
  */
 public class Product {
     private String name;
-    private String price;
-    private String availNum;
+    private Integer price;
+    private Integer availNum;
     private String description;
     Supplier supplier = new Supplier();
     
@@ -34,19 +34,19 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public String getAvailNum() {
+    public int getAvailNum() {
         return availNum;
     }
 
-    public void setAvailNum(String availNum) {
+    public void setAvailNum(Integer availNum) {
         this.availNum = availNum;
     }
 
