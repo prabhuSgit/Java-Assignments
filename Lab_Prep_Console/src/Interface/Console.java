@@ -43,6 +43,8 @@ public class Console {
             switch(input1){
                 case 1:
                     Scanner scanner = new Scanner(System.in);
+                    Scanner scanner2 = new Scanner(System.in);
+                    Scanner scanner3 = new Scanner(System.in);
                     System.out.println("Enter Product name:");
                     String prodName = scanner.nextLine();
                     product.setName(prodName);
@@ -68,16 +70,16 @@ public class Console {
                     }
                     
                     System.out.println("Enter Product description");
-                    String prodDescription = scanner.nextLine();
+                    String prodDescription = scanner2.nextLine();
                     product.setDescription(prodDescription);
         
                     System.out.println("Enter Product Supplier name");
-                    String supplierName = scanner.nextLine();
+                    String supplierName = scanner2.nextLine();
                     product.getSupplier().setSupplierName(supplierName);
                     
                     try{
                     System.out.println("Enter Product Supplier number");
-                    Integer supplierNbr = scanner.nextInt();
+                    Integer supplierNbr = scanner2.nextInt();
                     product.getSupplier().setSupplierRegNbr(supplierNbr);
                     }
                     catch(InputMismatchException e){
@@ -86,13 +88,13 @@ public class Console {
                     }
                     
                     System.out.println("Enter Product Supplier description");
-                    String supplierDesc = scanner.nextLine();
+                    String supplierDesc = scanner3.nextLine();
                     product.getSupplier().setSupplierDescription(supplierDesc);
                 
                     break;
                 
                 case 2:
-                
+                    try{
                     System.out.println(""
                             +          "Displaying the details you entered");
                     System.out.println("Product Name: " + product.getName());
@@ -102,13 +104,18 @@ public class Console {
                     System.out.println("Product Supplier Name:" + product.getSupplier().getSupplierName());
                     System.out.println("Product Supplier Registeration number: " + product.getSupplier().getSupplierRegNbr());
                     System.out.println("Product Supplier Description: " + product.getSupplier().getSupplierDescription());
-                
+                    }
+                    catch(Exception e){
+                        System.out.println("Sorry, the details are not complete.\n"
+                                +          "Please complete the details");
+                        continue label;
+                    }
                     break;
                     
                 case 3:
                     int x = 1;
                     while (x>0){
-                        Scanner scanner3 = new Scanner(System.in);
+                        Scanner scanner4 = new Scanner(System.in);
                         System.out.println(""
                                 + "Choose the field you want to update:\n"
                                 + "1-> Product Name\n"
@@ -125,7 +132,7 @@ public class Console {
                             case 1:
                                 System.out.println("Product Name: " + product.getName() + 
                                                    "\nChange to: ");
-                                String prodNameNew = scanner3.nextLine();
+                                String prodNameNew = scanner4.nextLine();
                                 product.setName(prodNameNew);
                                 
                                 System.out.println("New Name: " + product.getName());
@@ -134,7 +141,7 @@ public class Console {
                                 try{
                                 System.out.println("\nProduct Price: " + product.getPrice() + 
                                                    "\nChange to: ");
-                                Integer prodPriceNew = scanner3.nextInt();
+                                Integer prodPriceNew = scanner4.nextInt();
                                 product.setPrice(prodPriceNew);
                                 }
                                 catch(InputMismatchException e){
@@ -147,7 +154,7 @@ public class Console {
                                 try{
                                 System.out.println("\nProduct Availabilty number: " + product.getAvailNum() + 
                                                    "\nChange to: ");
-                                Integer prodAvailNbrNew = scanner3.nextInt();
+                                Integer prodAvailNbrNew = scanner4.nextInt();
                                 product.setAvailNum(prodAvailNbrNew);
                                 }
                                 catch(InputMismatchException e){
@@ -159,7 +166,7 @@ public class Console {
                             case 4:
                                 System.out.println("\nProduct Description: " + product.getDescription()+ 
                                                    "\nChange to: ");
-                                String prodDescriptionNew = scanner3.nextLine();
+                                String prodDescriptionNew = scanner4.nextLine();
                                 product.setDescription(prodDescriptionNew);
                                 
                                 System.out.println("New Description: " + product.getDescription());
@@ -167,7 +174,7 @@ public class Console {
                             case 5:
                                 System.out.println("\nProduct Supplier name: " + product.getSupplier().getSupplierName()+ 
                                                    "\nChange to: ");
-                                String supplierNameNew = scanner3.nextLine();
+                                String supplierNameNew = scanner4.nextLine();
                                 product.getSupplier().setSupplierName(supplierNameNew);
                                 
                                 System.out.println("New Supplier name: " + product.getSupplier().getSupplierName());
@@ -176,7 +183,7 @@ public class Console {
                                 try{
                                 System.out.println("\nProduct Supplier number: " + product.getSupplier().getSupplierRegNbr()+ 
                                                    "\nChange to: ");
-                                Integer supplierNbrNew = scanner3.nextInt();
+                                Integer supplierNbrNew = scanner4.nextInt();
                                 product.getSupplier().setSupplierRegNbr(supplierNbrNew);
                                 }
                                 catch(InputMismatchException e){
@@ -188,7 +195,7 @@ public class Console {
                             case 7:
                                 System.out.println("\nProduct Supplier description: " + product.getSupplier().getSupplierDescription()+ 
                                                    "\nChange to: ");
-                                String supplierDescNew = scanner3.nextLine();
+                                String supplierDescNew = scanner4.nextLine();
                                 product.getSupplier().setSupplierDescription(supplierDescNew);
                                 
                                 System.out.println("New Supplier number: " + product.getSupplier().getSupplierDescription());
