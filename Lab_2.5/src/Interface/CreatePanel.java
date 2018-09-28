@@ -130,24 +130,77 @@ public class CreatePanel extends javax.swing.JPanel {
         final int NUM_FIELD = 4;
         int numCorrectFields = 0;
         String errorMessage = "";
+        double temprature = 0;
+        double bloodPreasue = 0;
+        int pulse = 0;
+        String date = new String();
         
-        double temprature = Double.parseDouble(tempratureField.getText());
-        double bloodPreasue = Double.parseDouble(bloodPressureField.getText());
-        int pulse = Integer.parseInt(pulseField.getText());
-        String date = dateField.getText();
         
-        VitalSigns vSign = vitalSignHist.addVital();
-        vSign.setTemprature(temprature);
-        vSign.setBloodPressure(bloodPreasue);
-        vSign.setPulse(pulse);
-        vSign.setDate(date);
-       
-        JOptionPane.showMessageDialog(null, "Vital Signs added successfully");
-       
-        tempratureField.setText("");
-        bloodPressureField.setText("");
-        pulseField.setText("");
-        dateField.setText("");
+        
+        if(tempratureField.getText().isEmpty()){
+            errorMessage = errorMessage.concat("Please enter the Temprature\n");
+        }
+        else{
+            try{
+                temprature = Double.parseDouble(tempratureField.getText());
+                
+                numCorrectFields++;
+            }catch(NumberFormatException e){
+                errorMessage = errorMessage.concat("Temprature is not a valid input\n");
+            }
+            
+        }
+        
+        if(bloodPressureField.getText().isEmpty()){
+            errorMessage = errorMessage.concat("Please enter the Bloodpressure\n");
+        }
+        else{
+            try{
+                bloodPreasue = Double.parseDouble(bloodPressureField.getText());
+                
+                numCorrectFields++;
+            }catch(NumberFormatException e){
+                errorMessage = errorMessage.concat("Bloodpressure is not a valid input\n");
+            }
+            
+        }
+        if(pulseField.getText().isEmpty()){
+            errorMessage = errorMessage.concat("Please enter the Pulse\n");
+        }
+        else{
+            try{
+                pulse = Integer.parseInt(pulseField.getText());
+                
+                numCorrectFields++;
+            }catch(NumberFormatException e){
+                errorMessage = errorMessage.concat("Pulse is not a valid input\n");
+            }
+            
+        }
+        if(dateField.getText().isEmpty()){
+            errorMessage = errorMessage.concat("Please enter the Date\n");
+            
+        }
+        else{
+            date = dateField.getText();
+            numCorrectFields++;
+        }
+         
+        if(numCorrectFields<NUM_FIELD){
+            JOptionPane.showMessageDialog(null, errorMessage,"Incomplete/Invalid data entry!", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            VitalSigns vSign = vitalSignHist.addVital();
+            vSign.setTemprature(temprature);
+            vSign.setBloodPressure(bloodPreasue);
+            vSign.setPulse(pulse);
+            vSign.setDate(date);
+            JOptionPane.showMessageDialog(null, "Vital Signs added successfully");
+            tempratureField.setText("");
+            bloodPressureField.setText("");
+            pulseField.setText("");
+            dateField.setText("");
+        }
         
     }//GEN-LAST:event_submitBtnActionPerformed
 

@@ -6,7 +6,7 @@
 package Interface;
 
 import Business.VitalSignHistory;
-import sun.org.mozilla.javascript.internal.ScriptRuntime;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -160,13 +160,29 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void abnormalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abnormalBtnActionPerformed
         // TODO add your handling code here:
+        String maxbpString = new String();
+        String minbpString = new String();
+        String errorMessage = "";
+        if(maxbpText.getText().isEmpty() || minbpText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Displaying View panel. Kindly enter values in Min/Max to get Abnormal report.","Invalid Entry", JOptionPane.ERROR_MESSAGE);
+            ViewPanel viewPanel = new ViewPanel(vitalSignHistory);
+            SplitPane.setRightComponent(viewPanel);
+        }else{
+            try{
+            maxbpString = maxbpText.getText();
+            minbpString = minbpText.getText();
+            double maxbp = maxbpString.equals("") ? Double.MAX_VALUE : Double.parseDouble(maxbpString);
+            double minbp = minbpString.equals("") ? Double.MIN_VALUE : Double.parseDouble(minbpString);
+            AbnormalPanel abnormalPanel = new AbnormalPanel(vitalSignHistory, maxbp, minbp);
+            SplitPane.setRightComponent(abnormalPanel);
+            }catch(Exception e){
+                errorMessage = errorMessage.concat("Invalid Min/Max entry!");
+            }
         
-        String maxbpString = maxbpText.getText();
-        String minbpString = minbpText.getText();
-        double maxbp = maxbpString.equals("") ? Double.MAX_VALUE : Double.parseDouble(maxbpString);
-        double minbp = minbpString.equals("") ? Double.MIN_VALUE : Double.parseDouble(minbpString);
-        AbnormalPanel abnormalPanel = new AbnormalPanel(vitalSignHistory, maxbp, minbp);
-        SplitPane.setRightComponent(abnormalPanel);
+            
+        }
+        
+        
        
     }//GEN-LAST:event_abnormalBtnActionPerformed
 
