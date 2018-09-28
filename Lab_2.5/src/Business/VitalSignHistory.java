@@ -38,10 +38,10 @@ public class VitalSignHistory {
         this.vitalSignHistory = vitalSignHistory;
     }
 
-    public List<VitalSigns> getAbnormalList(double maxbp, double minbp) {
-        List<VitalSigns> abnList = new ArrayList<>();
+    public ArrayList<VitalSigns> getAbnormalList(double maxbp, double minbp) {
+        ArrayList<VitalSigns> abnList = new ArrayList<>();
         for(VitalSigns vs: vitalSignHistory){
-            if(vs.getBloodPressure()< maxbp || vs.getBloodPressure()> minbp){
+            if(vs.getBloodPressure()> maxbp || vs.getBloodPressure()< minbp){
                 abnList.add(vs);
             }
         }

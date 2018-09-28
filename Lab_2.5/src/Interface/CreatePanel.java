@@ -127,6 +127,9 @@ public class CreatePanel extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        final int NUM_FIELD = 4;
+        int numCorrectFields = 0;
+        String errorMessage = "";
         
         double temprature = Double.parseDouble(tempratureField.getText());
         double bloodPreasue = Double.parseDouble(bloodPressureField.getText());

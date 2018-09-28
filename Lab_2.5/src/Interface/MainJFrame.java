@@ -17,10 +17,10 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MsinJFrame
      */
-    private VitalSignHistory vitalSignHist;
+    private VitalSignHistory vitalSignHistory;
     public MainJFrame() {
         initComponents();
-        vitalSignHist = new VitalSignHistory();
+        vitalSignHistory = new VitalSignHistory();
         
     }
 
@@ -37,8 +37,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         createVitalSignsBtn = new javax.swing.JButton();
         viewVitalSignBtn = new javax.swing.JButton();
-        maxBP = new javax.swing.JTextField();
-        minBP = new javax.swing.JTextField();
+        maxbpText = new javax.swing.JTextField();
+        minbpText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         abnormalBtn = new javax.swing.JButton();
@@ -93,8 +93,8 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(maxBP)
-                            .addComponent(minBP))))
+                            .addComponent(maxbpText)
+                            .addComponent(minbpText))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,11 +106,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(viewVitalSignBtn)
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(minBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(minbpText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(maxBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maxbpText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(40, 40, 40)
                 .addComponent(abnormalBtn)
@@ -148,24 +148,24 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void createVitalSignsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVitalSignsBtnActionPerformed
         // TODO add your handling code here:
-        CreatePanel createPanel = new CreatePanel(vitalSignHist);
+        CreatePanel createPanel = new CreatePanel(vitalSignHistory);
         SplitPane.setRightComponent(createPanel);
     }//GEN-LAST:event_createVitalSignsBtnActionPerformed
 
     private void viewVitalSignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewVitalSignBtnActionPerformed
         // TODO add your handling code here:
-        ViewPanel viewPanel = new ViewPanel(vitalSignHist);
+        ViewPanel viewPanel = new ViewPanel(vitalSignHistory);
         SplitPane.setRightComponent(viewPanel);
     }//GEN-LAST:event_viewVitalSignBtnActionPerformed
 
     private void abnormalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abnormalBtnActionPerformed
         // TODO add your handling code here:
         
-        String maxbpString = maxBP.getText();
-        String minbpString = minBP.getText();
-        double maxbp = maxbpString.equals("") ? Double.MAX_VALUE : Double.parseDouble(minbpString);
+        String maxbpString = maxbpText.getText();
+        String minbpString = minbpText.getText();
+        double maxbp = maxbpString.equals("") ? Double.MAX_VALUE : Double.parseDouble(maxbpString);
         double minbp = minbpString.equals("") ? Double.MIN_VALUE : Double.parseDouble(minbpString);
-        AbnormalPanel abnormalPanel = new AbnormalPanel(vitalSignHist, maxbp, minbp);
+        AbnormalPanel abnormalPanel = new AbnormalPanel(vitalSignHistory, maxbp, minbp);
         SplitPane.setRightComponent(abnormalPanel);
        
     }//GEN-LAST:event_abnormalBtnActionPerformed
@@ -214,8 +214,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField maxBP;
-    private javax.swing.JTextField minBP;
+    private javax.swing.JTextField maxbpText;
+    private javax.swing.JTextField minbpText;
     private javax.swing.JButton viewVitalSignBtn;
     // End of variables declaration//GEN-END:variables
 }
