@@ -8,6 +8,7 @@ package UserInterface.TravelAgency;
 import Business.Airline;
 import Business.AirlinerDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,13 +21,13 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageAirlines
      */
-    private AirlinerDirectory airlineList;
+    private AirlinerDirectory airlineDirectory;
     private JPanel rightJPanel;
     private DefaultTableModel dtm;
     
-    AirlinesManageJPanel(JPanel rightJPanel, AirlinerDirectory airlineList) {
+    AirlinesManageJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
         initComponents();
-        this.airlineList = airlineList;
+        this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
         this.dtm = dtm;
         populate();
@@ -36,7 +37,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         dtm = (DefaultTableModel)airlineTbl.getModel();
         dtm.setRowCount(0);
         
-        for(Airline airline : airlineList.getAirlinerDiroctory()){
+        for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
             Object[] row = new Object[dtm.getColumnCount()];
             row[0]=airline;
             row[1]=airline.getCode();
@@ -144,10 +145,16 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
 
     private void addFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFlightBtnActionPerformed
         // TODO add your handling code here:
-        FlightManagerJPanel flightPanel = new FlightManagerJPanel(rightJPanel, airlineList);
-        rightJPanel.add("FlightManagerJPanel", flightPanel);
-        CardLayout layout = (CardLayout)rightJPanel.getLayout();
-        layout.next(rightJPanel);
+        int selectRow = airlineTbl.getSelectedRow();
+        if(selectRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row");
+        }else{
+            Airline airline = (Airline)airlineTbl.getValueAt(selectRow, 0);
+            FlightManagerJPanel flightPanel = new FlightManagerJPanel(rightJPanel, airline, airlineDirectory);
+            rightJPanel.add("FlightManagerJPanel", flightPanel);
+            CardLayout layout = (CardLayout)rightJPanel.getLayout();
+            layout.next(rightJPanel);
+        }
         
     }//GEN-LAST:event_addFlightBtnActionPerformed
 
@@ -160,7 +167,16 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
 
     private void viewAirlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAirlineBtnActionPerformed
         // TODO add your handling code here:
-        
+        int selectRow = airlineTbl.getSelectedRow();
+        if(selectRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row");
+        }else{
+            Airline airline = (Airline)airlineTbl.getValueAt(selectRow, 0);
+            ViewAirlineJPanel vPanel = new ViewAirlineJPanel(rightJPanel, airline, airlineDirectory);
+            rightJPanel.add("ViewPanel", vPanel);
+            CardLayout layout = (CardLayout)rightJPanel.getLayout();
+            layout.next(rightJPanel);
+        }
     }//GEN-LAST:event_viewAirlineBtnActionPerformed
 
 

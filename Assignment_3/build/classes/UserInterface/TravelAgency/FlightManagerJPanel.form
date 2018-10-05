@@ -197,9 +197,6 @@
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toDropDownActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="scheduleDropDown">
       <Properties>
@@ -212,9 +209,6 @@
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scheduleDropDownActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

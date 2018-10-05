@@ -19,12 +19,12 @@ public class TravelAgencyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form leftControlPanel
      */
-    private AirlinerDirectory airlineList;
+    private AirlinerDirectory airlineDirectory;
     private JPanel rightJPanel;
     
-    public TravelAgencyJPanel(JPanel rightJPanel, AirlinerDirectory airlineList) {
+    public TravelAgencyJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
         initComponents();
-        this.airlineList = airlineList;
+        this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
     }
 
@@ -105,7 +105,7 @@ public class TravelAgencyJPanel extends javax.swing.JPanel {
 
     private void flightManagerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightManagerBtnActionPerformed
         // TODO add your handling code here:
-        AirlinesManageJPanel airlinePanel = new AirlinesManageJPanel(rightJPanel, airlineList);
+        AirlinesManageJPanel airlinePanel = new AirlinesManageJPanel(rightJPanel, airlineDirectory);
         rightJPanel.add("AirlinesManageJPanel", airlinePanel);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.next(rightJPanel);
@@ -123,7 +123,7 @@ public class TravelAgencyJPanel extends javax.swing.JPanel {
 
     private void airlineAdderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_airlineAdderBtnActionPerformed
         // TODO add your handling code here:
-        CreateAirlineJPanel createAirline = new CreateAirlineJPanel(rightJPanel, airlineList);
+        CreateAirlineJPanel createAirline = new CreateAirlineJPanel(rightJPanel, airlineDirectory);
         rightJPanel.add("CreateAirlineJPanel", createAirline);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.next(rightJPanel);

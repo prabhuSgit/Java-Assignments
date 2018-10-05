@@ -11,12 +11,13 @@ package Business;
  */
 public class Flight {
     private String flightCode;
-    private String airline;
-    private Integer seats = 5;
+    private Integer seats;
     private String fromLocation;
     private String toLocation;
     private String schedule;
-
+    private String airline;
+    
+    
     public String getSchedule() {
         return schedule;
     }
@@ -65,4 +66,9 @@ public class Flight {
         this.toLocation = toLocation;
     }
     
+    @Override
+    public String toString() {
+        return this.getFlightCode(); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

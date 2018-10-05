@@ -20,12 +20,12 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateAirlineJPanel
      */
-    private AirlinerDirectory airlineList;
+    private AirlinerDirectory airlineDirectory;
     private JPanel rightJPanel;
     
-    public CreateAirlineJPanel(JPanel rightJPanel, AirlinerDirectory airlineList) {
+    public CreateAirlineJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
         initComponents();
-        this.airlineList = airlineList;
+        this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
     }
 
@@ -138,7 +138,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
                 return;
             }
              
-            Airline airline = airlineList.addAirline();
+            Airline airline = airlineDirectory.addAirline();
             airline.setName(nameAirlineTxtField.getText());
             airline.setCode(Integer.parseInt(codeAirlineTxtField.getText()));
             airline.setDescription(desAirlineTxtField.getText());

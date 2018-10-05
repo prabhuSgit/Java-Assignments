@@ -19,11 +19,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    private AirlinerDirectory airlineList;
+    private AirlinerDirectory airlineDirectory;
     
     public MainJFrame() {
         initComponents();
-        airlineList = new AirlinerDirectory();
+        airlineDirectory = new AirlinerDirectory();
     }
 
     /**
@@ -113,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void travelAgencyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelAgencyBtnActionPerformed
         // TODO add your handling code here:
-        TravelAgencyJPanel ctrlPanel = new TravelAgencyJPanel(rightJPanel, airlineList);
+        TravelAgencyJPanel ctrlPanel = new TravelAgencyJPanel(rightJPanel, airlineDirectory);
         splitPane.setLeftComponent(ctrlPanel);
         /*
         rightJPanel.add("MainControlJPanel", ctrlPanel);

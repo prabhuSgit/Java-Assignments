@@ -25,13 +25,15 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FlightManager
      */
-    private FlightDirectory flightDirectory;
+    private AirlinerDirectory airlinerDirectory;
+    private Airline airline;
     private JPanel rightJPanel;
     
-    FlightManagerJPanel(JPanel rightJPanel, AirlinerDirectory airlineList) {
+    FlightManagerJPanel(JPanel rightJPanel, Airline airline, AirlinerDirectory airlinerDirectory) {
         initComponents();
-        flightDirectory = new FlightDirectory();
+        this.airline=airline;
         this.rightJPanel=rightJPanel;
+        this.airlinerDirectory=airlinerDirectory;
      
     }
 
@@ -97,18 +99,8 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
         });
 
         toDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York" }));
-        toDropDown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toDropDownActionPerformed(evt);
-            }
-        });
 
         scheduleDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select Schedule>", "Morning", "Afternoon", "Evening" }));
-        scheduleDropDown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scheduleDropDownActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,7 +177,7 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        if(flightNameTxtField.getText().isEmpty() || fromDropDown.equals("<Select a City>")){
+        if(flightNameTxtField.getText().isEmpty() || seatsTxtField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please add all the details!");
         }else{
             
@@ -198,11 +190,14 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
                 return;
             }
              
-            Flight newFlight = flightDirectory.addFlight();
+            Flight newFlight = airline.addFlight();
             newFlight.setFlightCode(flightNameTxtField.getText());
-            newFlight.setFromLocation((String) fromDropDown.getSelectedItem());
+            newFlight.setFromLocation((String)fromDropDown.getSelectedItem());
+            newFlight.setToLocation((String)toDropDown.getSelectedItem());
             newFlight.setSeats(Integer.parseInt(seatsTxtField.getText()));
+            newFlight.setSchedule((String)scheduleDropDown.getSelectedItem());
             
+            /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
             JOptionPane.showMessageDialog(null, "Airline added successfully!");
         }
             
@@ -214,14 +209,6 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.previous(rightJPanel);
     }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void toDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toDropDownActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_toDropDownActionPerformed
-
-    private void scheduleDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleDropDownActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_scheduleDropDownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

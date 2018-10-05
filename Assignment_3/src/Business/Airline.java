@@ -17,6 +17,10 @@ public class Airline {
     private String description;
     private ArrayList<Flight> flightDirectory;
 
+    public Airline(){
+        flightDirectory = new ArrayList<Flight>();
+    }
+    
     public ArrayList<Flight> getFlightDirectory() {
         return flightDirectory;
     }
