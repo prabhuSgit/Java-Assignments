@@ -22,6 +22,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
      */
     private AirlinerDirectory airlineList;
     private JPanel rightJPanel;
+    
     public CreateAirlineJPanel(JPanel rightJPanel, AirlinerDirectory airlineList) {
         initComponents();
         this.airlineList = airlineList;

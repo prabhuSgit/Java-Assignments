@@ -11,11 +11,12 @@ import java.util.ArrayList;
  *
  * @author Prabhu Surbamanian
  */
-public class Airline {
-    private String name;
-    private Integer code;
-    private String description;
+public class FlightDirectory {
     private ArrayList<Flight> flightDirectory;
+    
+    public FlightDirectory(){
+        flightDirectory = new ArrayList<Flight>();
+    }
 
     public ArrayList<Flight> getFlightDirectory() {
         return flightDirectory;
@@ -24,42 +25,13 @@ public class Airline {
     public void setFlightDirectory(ArrayList<Flight> flightDirectory) {
         this.flightDirectory = flightDirectory;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    @Override
-    public String toString() {
-        return this.getName(); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     public Flight addFlight(){
         Flight newFlight = new Flight();
         flightDirectory.add(newFlight);
         return newFlight;
     }
-     public void deleteFlight(Flight flight){
+    
+    public void deleteFlight(Flight flight){
         flightDirectory.remove(flight);
     }
     
@@ -71,5 +43,4 @@ public class Airline {
         }
         return null;
     }
-    
 }

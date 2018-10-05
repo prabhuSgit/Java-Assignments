@@ -36,7 +36,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jSplitPane2 = new javax.swing.JSplitPane();
+        splitPane = new javax.swing.JSplitPane();
         leftJPanel = new javax.swing.JPanel();
         travelAgencyBtn = new javax.swing.JButton();
         customerBookingBtn = new javax.swing.JButton();
@@ -92,20 +92,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(353, Short.MAX_VALUE))
         );
 
-        jSplitPane2.setLeftComponent(leftJPanel);
+        splitPane.setLeftComponent(leftJPanel);
 
         rightJPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane2.setRightComponent(rightJPanel);
+        splitPane.setRightComponent(rightJPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2)
+            .addComponent(splitPane)
         );
 
         pack();
@@ -114,9 +114,11 @@ public class MainJFrame extends javax.swing.JFrame {
     private void travelAgencyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelAgencyBtnActionPerformed
         // TODO add your handling code here:
         TravelAgencyJPanel ctrlPanel = new TravelAgencyJPanel(rightJPanel, airlineList);
+        splitPane.setLeftComponent(ctrlPanel);
+        /*
         rightJPanel.add("MainControlJPanel", ctrlPanel);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
-        layout.next(rightJPanel);
+        layout.next(rightJPanel);*/
     }//GEN-LAST:event_travelAgencyBtnActionPerformed
 
     private void customerBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerBookingBtnActionPerformed
@@ -162,9 +164,9 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton customerBookingBtn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JPanel leftJPanel;
     private javax.swing.JPanel rightJPanel;
+    private javax.swing.JSplitPane splitPane;
     private javax.swing.JButton travelAgencyBtn;
     // End of variables declaration//GEN-END:variables
 }
