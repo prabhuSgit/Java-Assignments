@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business;
+package Business.TravelAgency;
 
 import java.util.ArrayList;
 
@@ -11,11 +11,11 @@ import java.util.ArrayList;
  *
  * @author Prabhu Surbamanian
  */
-public class AirlinerDirectory {
+public class AirlineDirectory {
     
     private ArrayList<Airline> airlineDiroctory;
     
-    public AirlinerDirectory(){
+    public AirlineDirectory(){
         airlineDiroctory = new ArrayList<Airline>();
     }
     

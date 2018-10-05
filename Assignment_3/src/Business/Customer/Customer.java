@@ -3,35 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business;
+package Business.Customer;
 
 /**
  *
  * @author Prabhu Surbamanian
  */
-public class Flight {
+public class Customer {
+    private String customerName;
+    private Integer customerAge;
+    private String airline;
     private String flightCode;
-    private Integer seats;
     private String fromLocation;
     private String toLocation;
-    private String schedule;
-    private String airline;
-    
-    
-    public String getSchedule() {
-        return schedule;
+    private String seat;
+
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
-    }
-    
-    public String getFlightCode() {
-        return flightCode;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public void setFlightCode(String flightCode) {
-        this.flightCode = flightCode;
+    public Integer getCustomerAge() {
+        return customerAge;
+    }
+
+    public void setCustomerAge(Integer customerAge) {
+        this.customerAge = customerAge;
     }
 
     public String getAirline() {
@@ -42,12 +42,12 @@ public class Flight {
         this.airline = airline;
     }
 
-    public Integer getSeats() {
-        return seats;
+    public String getFlightCode() {
+        return flightCode;
     }
 
-    public void setSeats(Integer seats) {
-        this.seats = seats;
+    public void setFlightCode(String flightCode) {
+        this.flightCode = flightCode;
     }
 
     public String getFromLocation() {
@@ -65,10 +65,18 @@ public class Flight {
     public void setToLocation(String toLocation) {
         this.toLocation = toLocation;
     }
+
+    public String getSeat() {
+        return seat;
+    }
+
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
     
     @Override
     public String toString() {
-        return this.getFlightCode(); //To change body of generated methods, choose Tools | Templates.
+        return this.getCustomerName(); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

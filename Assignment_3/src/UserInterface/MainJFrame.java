@@ -5,7 +5,7 @@
  */
 package UserInterface;
 
-import Business.AirlinerDirectory;
+import Business.TravelAgency.AirlineDirectory;
 import UserInterface.TravelAgency.AirlinesManageJPanel;
 import UserInterface.TravelAgency.MainTravelAgencyJPanel;
 import java.awt.CardLayout;
@@ -19,11 +19,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    private AirlinerDirectory airlineDirectory;
+    private AirlineDirectory airlineDirectory;
     
     public MainJFrame() {
         initComponents();
-        airlineDirectory = new AirlinerDirectory();
+        airlineDirectory = new AirlineDirectory();
     }
 
     /**

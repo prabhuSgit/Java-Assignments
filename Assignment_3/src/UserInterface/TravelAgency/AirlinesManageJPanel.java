@@ -5,8 +5,8 @@
  */
 package UserInterface.TravelAgency;
 
-import Business.Airline;
-import Business.AirlinerDirectory;
+import Business.TravelAgency.Airline;
+import Business.TravelAgency.AirlineDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,11 +21,11 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageAirlines
      */
-    private AirlinerDirectory airlineDirectory;
+    private AirlineDirectory airlineDirectory;
     private JPanel rightJPanel;
     private DefaultTableModel dtm;
     
-    AirlinesManageJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
+    AirlinesManageJPanel(JPanel rightJPanel, AirlineDirectory airlineDirectory) {
         initComponents();
         this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
@@ -64,6 +64,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 204));
 
+        airlineTbl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         airlineTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -82,6 +83,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(airlineTbl);
 
+        addFlightBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         addFlightBtn.setText("Add Flight");
         addFlightBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +91,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewAirlineBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         viewAirlineBtn.setText("View Details");
         viewAirlineBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,9 +99,10 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Airlines Manager");
 
+        backBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         backBtn.setText("<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +117,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
+                        .addGap(141, 141, 141)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(addFlightBtn)
@@ -122,24 +126,24 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(backBtn)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
+                        .addGap(285, 285, 285)
                         .addComponent(jLabel1)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
+                .addGap(57, 57, 57)
+                .addComponent(backBtn)
+                .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addFlightBtn)
                     .addComponent(viewAirlineBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backBtn)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,7 +154,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a Row");
         }else{
             Airline airline = (Airline)airlineTbl.getValueAt(selectRow, 0);
-            FlightManagerJPanel flightPanel = new FlightManagerJPanel(rightJPanel, airline, airlineDirectory);
+            CreateFlightJPanel flightPanel = new CreateFlightJPanel(rightJPanel, airline, airlineDirectory);
             rightJPanel.add("FlightManagerJPanel", flightPanel);
             CardLayout layout = (CardLayout)rightJPanel.getLayout();
             layout.next(rightJPanel);
