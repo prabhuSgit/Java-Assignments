@@ -48,7 +48,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
         addAirlineBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setText("Airline Name:");
 

@@ -62,7 +62,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         airlineTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

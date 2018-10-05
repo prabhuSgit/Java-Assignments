@@ -65,7 +65,7 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("jLabel3");
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setText("Flight Code:");
 
@@ -199,6 +199,10 @@ public class FlightManagerJPanel extends javax.swing.JPanel {
             
             /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
             JOptionPane.showMessageDialog(null, "Airline added successfully!");
+            
+            rightJPanel.remove(this);
+            CardLayout layout = (CardLayout)rightJPanel.getLayout();
+            layout.previous(rightJPanel);
         }
             
     }//GEN-LAST:event_addBtnActionPerformed

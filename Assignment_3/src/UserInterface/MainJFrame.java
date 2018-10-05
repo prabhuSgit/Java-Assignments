@@ -7,7 +7,7 @@ package UserInterface;
 
 import Business.AirlinerDirectory;
 import UserInterface.TravelAgency.AirlinesManageJPanel;
-import UserInterface.TravelAgency.TravelAgencyJPanel;
+import UserInterface.TravelAgency.MainTravelAgencyJPanel;
 import java.awt.CardLayout;
 
 /**
@@ -94,6 +94,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(leftJPanel);
 
+        rightJPanel.setBackground(new java.awt.Color(204, 204, 204));
         rightJPanel.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(rightJPanel);
 
@@ -113,7 +114,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void travelAgencyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelAgencyBtnActionPerformed
         // TODO add your handling code here:
-        TravelAgencyJPanel ctrlPanel = new TravelAgencyJPanel(rightJPanel, airlineDirectory);
+        MainTravelAgencyJPanel ctrlPanel = new MainTravelAgencyJPanel(rightJPanel, airlineDirectory);
         splitPane.setLeftComponent(ctrlPanel);
         /*
         rightJPanel.add("MainControlJPanel", ctrlPanel);

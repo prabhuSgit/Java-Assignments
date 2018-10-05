@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author Prabhu Surbamanian
  */
-public class TravelAgencyJPanel extends javax.swing.JPanel {
+public class MainTravelAgencyJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form leftControlPanel
@@ -22,7 +22,7 @@ public class TravelAgencyJPanel extends javax.swing.JPanel {
     private AirlinerDirectory airlineDirectory;
     private JPanel rightJPanel;
     
-    public TravelAgencyJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
+    public MainTravelAgencyJPanel(JPanel rightJPanel, AirlinerDirectory airlineDirectory) {
         initComponents();
         this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
