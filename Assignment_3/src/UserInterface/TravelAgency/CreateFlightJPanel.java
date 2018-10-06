@@ -48,12 +48,10 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         flightNameTxtField = new javax.swing.JTextField();
-        seatsTxtField = new javax.swing.JTextField();
         airlineNameTxtField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         airlineNameLabel = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -65,26 +63,23 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("jLabel3");
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         airlineNameTxtField.setEditable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Flight Code:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("From Location:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("To Location:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("No. of Seats:");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Schedule:");
 
-        airlineNameLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        airlineNameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         airlineNameLabel.setText("Airline:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -92,7 +87,7 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
 
         fromDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York" }));
 
-        addBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addBtn.setText("Add");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +95,7 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,36 +117,34 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
                         .addGap(314, 314, 314)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
+                        .addGap(155, 155, 155)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(airlineNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(scheduleDropDown, 0, 128, Short.MAX_VALUE)
-                                    .addComponent(flightNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(seatsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fromDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(airlineNameTxtField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(scheduleDropDown, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fromDropDown, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(flightNameTxtField, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(39, 39, 39)
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(toDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(airlineNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(154, Short.MAX_VALUE))
+                                .addGap(20, 20, 20)
+                                .addComponent(toDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel8)
-                .addGap(70, 70, 70)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(airlineNameLabel)
                     .addComponent(airlineNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -169,40 +162,37 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(scheduleDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seatsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(57, 57, 57)
+                .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelBtn)
                     .addComponent(addBtn))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        if(flightNameTxtField.getText().isEmpty() || seatsTxtField.getText().isEmpty()){
+        if(flightNameTxtField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please add all the details!");
         }else{
             
             flightNameTxtField.getText();
-            
+            /*
             try{
             Integer.parseInt(seatsTxtField.getText());
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Only numbers are allowed for Seats");
                 return;
-            }
+            }*/
              
             Flight newFlight = airline.addFlight();
             newFlight.setFlightCode(flightNameTxtField.getText());
             newFlight.setFromLocation((String)fromDropDown.getSelectedItem());
             newFlight.setToLocation((String)toDropDown.getSelectedItem());
-            newFlight.setSeats(Integer.parseInt(seatsTxtField.getText()));
+            /*newFlight.setSeats(Integer.parseInt(seatsTxtField.getText()));*/
             newFlight.setSchedule((String)scheduleDropDown.getSelectedItem());
             newFlight.setAirline(airline.getName());
+            newFlight.setStatus("Available");
             
             /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
             JOptionPane.showMessageDialog(null, "Airline added successfully!");
@@ -233,11 +223,9 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JComboBox scheduleDropDown;
-    private javax.swing.JTextField seatsTxtField;
     private javax.swing.JComboBox toDropDown;
     // End of variables declaration//GEN-END:variables
 }

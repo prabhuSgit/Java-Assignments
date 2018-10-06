@@ -5,9 +5,11 @@
  */
 package UserInterface.TravelAgency;
 
+import Business.TravelAgency.Airline;
 import Business.TravelAgency.AirlineDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -20,14 +22,16 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
      * Creates new form leftControlPanel
      */
     private AirlineDirectory airlineDirectory;
+    private Airline airline;
     private JPanel rightJPanel;
     
     public MainTravelAgencyJPanel(JPanel rightJPanel, AirlineDirectory airlineDirectory) {
         initComponents();
         this.airlineDirectory = airlineDirectory;
         this.rightJPanel = rightJPanel;
+        this.airline = airline;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,38 +44,30 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
         flightManagerBtn = new javax.swing.JButton();
         masterScheduleBtn = new javax.swing.JButton();
         airlineAdderBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        flightManagerBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        flightManagerBtn.setText("Flight Manager");
+        flightManagerBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        flightManagerBtn.setText("Flight Manager>>");
         flightManagerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 flightManagerBtnActionPerformed(evt);
             }
         });
 
-        masterScheduleBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        masterScheduleBtn.setText("Master Schedule");
+        masterScheduleBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        masterScheduleBtn.setText("Master Schedule>>");
         masterScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 masterScheduleBtnActionPerformed(evt);
             }
         });
 
-        airlineAdderBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        airlineAdderBtn.setText("Add Airline");
+        airlineAdderBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        airlineAdderBtn.setText("Add Airline>>");
         airlineAdderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 airlineAdderBtnActionPerformed(evt);
-            }
-        });
-
-        backBtn.setText("<Back");
-        backBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtnActionPerformed(evt);
             }
         });
 
@@ -80,34 +76,24 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(masterScheduleBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(flightManagerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(airlineAdderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(238, 238, 238)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(airlineAdderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(masterScheduleBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(flightManagerBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(146, 146, 146)
                 .addComponent(airlineAdderBtn)
-                .addGap(34, 34, 34)
+                .addGap(21, 21, 21)
                 .addComponent(flightManagerBtn)
-                .addGap(18, 18, 18)
+                .addGap(93, 93, 93)
                 .addComponent(masterScheduleBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(backBtn)
-                .addGap(25, 25, 25))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +112,8 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
 
     private void masterScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masterScheduleBtnActionPerformed
         // TODO add your handling code here:
-        ScheduleManageJPanel scheduleManager  = new ScheduleManageJPanel(rightJPanel, airlineDirectory);
+        
+        ScheduleManageJPanel scheduleManager  = new ScheduleManageJPanel(rightJPanel, airline, airlineDirectory);
         rightJPanel.add("ScheduleManageJPanel", scheduleManager);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.next(rightJPanel);
@@ -140,15 +127,9 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
         layout.next(rightJPanel);
     }//GEN-LAST:event_airlineAdderBtnActionPerformed
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton airlineAdderBtn;
-    private javax.swing.JButton backBtn;
     private javax.swing.JButton flightManagerBtn;
     private javax.swing.JButton masterScheduleBtn;
     // End of variables declaration//GEN-END:variables

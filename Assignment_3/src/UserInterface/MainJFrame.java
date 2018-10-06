@@ -5,7 +5,9 @@
  */
 package UserInterface;
 
+import Business.TravelAgency.Airline;
 import Business.TravelAgency.AirlineDirectory;
+import UserInterface.Customer.CustomerLoginJPanel;
 import UserInterface.TravelAgency.AirlinesManageJPanel;
 import UserInterface.TravelAgency.MainTravelAgencyJPanel;
 import java.awt.CardLayout;
@@ -20,10 +22,12 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     private AirlineDirectory airlineDirectory;
+    private Airline airline;
     
     public MainJFrame() {
         initComponents();
         airlineDirectory = new AirlineDirectory();
+        this.airline=airline;
     }
 
     /**
@@ -55,8 +59,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftJPanel.setBackground(new java.awt.Color(255, 255, 255));
+        leftJPanel.setBackground(new java.awt.Color(204, 204, 255));
 
+        travelAgencyBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         travelAgencyBtn.setText("Travel Agency");
         travelAgencyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +69,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        customerBookingBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         customerBookingBtn.setText("Customer Booking");
         customerBookingBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +95,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(travelAgencyBtn)
                 .addGap(33, 33, 33)
                 .addComponent(customerBookingBtn)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftJPanel);
@@ -102,7 +108,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,15 +121,17 @@ public class MainJFrame extends javax.swing.JFrame {
     private void travelAgencyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelAgencyBtnActionPerformed
         // TODO add your handling code here:
         MainTravelAgencyJPanel ctrlPanel = new MainTravelAgencyJPanel(rightJPanel, airlineDirectory);
-        splitPane.setLeftComponent(ctrlPanel);
-        /*
         rightJPanel.add("MainControlJPanel", ctrlPanel);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
-        layout.next(rightJPanel);*/
+        layout.next(rightJPanel);
     }//GEN-LAST:event_travelAgencyBtnActionPerformed
 
     private void customerBookingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerBookingBtnActionPerformed
         // TODO add your handling code here:
+        CustomerLoginJPanel custMain = new CustomerLoginJPanel(rightJPanel, airlineDirectory);
+        rightJPanel.add("CustomerLoginJPanel", custMain);
+        CardLayout layout = (CardLayout)rightJPanel.getLayout();
+        layout.next(rightJPanel);
     }//GEN-LAST:event_customerBookingBtnActionPerformed
 
     /**

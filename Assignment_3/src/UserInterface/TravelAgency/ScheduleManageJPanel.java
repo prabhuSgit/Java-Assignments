@@ -9,6 +9,9 @@ import Business.TravelAgency.Airline;
 import Business.TravelAgency.AirlineDirectory;
 import Business.TravelAgency.Flight;
 import Business.TravelAgency.FlightDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,12 +27,15 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
     private DefaultTableModel dtm;
     private AirlineDirectory airlineDirectory;
     private Airline airline;
+    private JPanel rightJPanel;
+    private Flight flight;
     
-
-    ScheduleManageJPanel(JPanel rightJPanel, AirlineDirectory airlineDirectory) {
+    ScheduleManageJPanel(JPanel rightJPanel, Airline airline, AirlineDirectory airlineDirectory) {
         initComponents();
         this.airlineDirectory=airlineDirectory;
         this.airline=airline;
+        this.rightJPanel=rightJPanel;
+        
         populate();
     }
     
@@ -47,7 +53,6 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
                 row[4]=flight.getSchedule();
                 dtm.addRow(row);
             }
-            
         }
     }
     
@@ -63,7 +68,13 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         flightScheduleTbl = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        changeScheduleBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        flightScheduleTbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         flightScheduleTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -82,27 +93,86 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(flightScheduleTbl);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Master Schedule List");
+
+        changeScheduleBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        changeScheduleBtn.setText("Change Schedule");
+        changeScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeScheduleBtnActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("<Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(334, 334, 334)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(changeScheduleBtn)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel4)
+                .addGap(74, 74, 74)
+                .addComponent(jButton1)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(changeScheduleBtn)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void changeScheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeScheduleBtnActionPerformed
+        // TODO add your handling code here:
+        int selectRow = flightScheduleTbl.getSelectedRow();
+        if(selectRow<0){
+            JOptionPane.showMessageDialog(null, "Please select a Row");
+        }else{
+            
+            Airline airline = (Airline)flightScheduleTbl.getValueAt(selectRow, 0);
+            Flight flight = (Flight)flightScheduleTbl.getValueAt(selectRow, 1);
+            ChangeScheduleJPanel changePanel = new ChangeScheduleJPanel(rightJPanel, airline, flight, airlineDirectory);
+            rightJPanel.add("ChangeScheduleJPanel", changePanel);
+            CardLayout layout = (CardLayout)rightJPanel.getLayout();
+            layout.next(rightJPanel);
+        }
+    }//GEN-LAST:event_changeScheduleBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        rightJPanel.remove(this);
+        CardLayout layout = (CardLayout)rightJPanel.getLayout();
+        layout.previous(rightJPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton changeScheduleBtn;
     private javax.swing.JTable flightScheduleTbl;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

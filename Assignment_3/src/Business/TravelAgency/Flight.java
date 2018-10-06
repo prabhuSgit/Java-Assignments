@@ -5,18 +5,57 @@
  */
 package Business.TravelAgency;
 
+import Business.Customer.Customer;
+import Business.Customer.CustomerDirectory;
+import java.util.ArrayList;
+
 /**
  *
  * @author Prabhu Surbamanian
  */
 public class Flight {
     private String flightCode;
-    private Integer seats;
+    private Integer seats = 5;
     private String fromLocation;
     private String toLocation;
     private String schedule;
     private String airline;
+    private ArrayList<Customer> customerDirectory;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
+    public Customer addCustomer(){
+        Customer newCustomer = new Customer();
+        customerDirectory.add(newCustomer);
+        return newCustomer;
+    }
+     public void deleteCustomer(Flight flight){
+        customerDirectory.remove(flight);
+    }
+    
+    public Customer searchCustomer(String name){
+        for(Customer customer : this.customerDirectory){
+            if(customer.getFlightCode().equalsIgnoreCase(name)){
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Customer> getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(ArrayList<Customer> customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
     
     public String getSchedule() {
         return schedule;

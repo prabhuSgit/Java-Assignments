@@ -48,21 +48,21 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
         addAirlineBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Airline Name:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Airline Code:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Airline Description:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Adding Airline");
 
-        addAirlineBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        addAirlineBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addAirlineBtn.setText("Add");
         addAirlineBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +104,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(jLabel4)))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +127,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAirlineBtn)
                     .addComponent(cancelBtn))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

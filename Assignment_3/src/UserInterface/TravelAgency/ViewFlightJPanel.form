@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -22,7 +22,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -31,37 +31,42 @@
                           <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" max="32767" attributes="0"/>
                           <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="81" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="airlineName" max="32767" attributes="0"/>
-                                  <Component id="scheduleTxtField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fromLocationTxtField" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                                  <Component id="flightCodeTxtField" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="airlineName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="flightCodeTxtField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fromDropDown" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="scheduleDropDown" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="seatsTxtField" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="toLocationTxtField" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel5" max="32767" attributes="0"/>
+                                      <Component id="jLabel6" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel8" pref="79" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="seatsTxtField" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="toDropDown" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="statusDropDown" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="118" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="118" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,7 +75,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <Component id="backBtn1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="airlineName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -85,23 +92,23 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fromLocationTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="toLocationTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fromDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="toDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="scheduleTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="statusDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="scheduleDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="saveBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="backBtn1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <EmptySpace pref="127" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -115,16 +122,6 @@
         <Property name="text" type="java.lang.String" value="Flights Details"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="scheduleTxtField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="fromLocationTxtField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="flightCodeTxtField">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
@@ -133,7 +130,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="From Location:"/>
       </Properties>
@@ -141,7 +138,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Schedule:"/>
       </Properties>
@@ -149,7 +146,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Flight Code:"/>
       </Properties>
@@ -157,7 +154,7 @@
     <Component class="javax.swing.JButton" name="saveBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Save"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -172,7 +169,7 @@
     <Component class="javax.swing.JButton" name="updateBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
@@ -183,18 +180,13 @@
     <Component class="javax.swing.JButton" name="backBtn1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;Back"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtn1ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="toLocationTxtField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="seatsTxtField">
       <Properties>
@@ -209,7 +201,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Seats:"/>
       </Properties>
@@ -217,7 +209,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="To Location:"/>
       </Properties>
@@ -225,9 +217,73 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="0"/>
+          <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Airline:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="statusDropDown">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Available"/>
+            <StringItem index="1" value="Cancelled"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="fromDropDown">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="&lt;Select a City&gt;"/>
+            <StringItem index="1" value="Boston"/>
+            <StringItem index="2" value="New York"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="toDropDown">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="&lt;Select a City&gt;"/>
+            <StringItem index="1" value="Boston"/>
+            <StringItem index="2" value="New York"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="scheduleDropDown">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="&lt;Select Schedule&gt;"/>
+            <StringItem index="1" value="Morning"/>
+            <StringItem index="2" value="Afternoon"/>
+            <StringItem index="3" value="Evening"/>
+          </StringArray>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
