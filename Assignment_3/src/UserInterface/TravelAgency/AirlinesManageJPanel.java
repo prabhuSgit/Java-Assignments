@@ -110,7 +110,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         });
 
         viewAirlineBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        viewAirlineBtn.setText("View Details");
+        viewAirlineBtn.setText("View/Edit Details");
         viewAirlineBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAirlineBtnActionPerformed(evt);

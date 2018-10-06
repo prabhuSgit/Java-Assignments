@@ -48,7 +48,7 @@ public class MainTravelAgencyJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         flightManagerBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        flightManagerBtn.setText("Flight Manager>>");
+        flightManagerBtn.setText("Airlines/Flight Manager>>");
         flightManagerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 flightManagerBtnActionPerformed(evt);
