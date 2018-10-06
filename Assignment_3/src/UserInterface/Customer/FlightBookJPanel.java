@@ -10,6 +10,9 @@ import Business.TravelAgency.Airline;
 import Business.TravelAgency.AirlineDirectory;
 import Business.TravelAgency.Flight;
 import Business.TravelAgency.UserDirectory;
+import UserInterface.TravelAgency.ViewAirlineJPanel;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -207,13 +210,13 @@ public class FlightBookJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(432, 432, 432)
+                        .addGap(411, 411, 411)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(482, 482, 482)
+                        .addGap(452, 452, 452)
                         .addComponent(submitBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
+                        .addGap(195, 195, 195)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,8 +352,21 @@ public class FlightBookJPanel extends javax.swing.JPanel {
         seatNo++;
         
         JOptionPane.showMessageDialog(null, "Flight booked!");
+        
+        rightJPanel.remove(this);
+        CardLayout layout = (CardLayout)rightJPanel.getLayout();
+        layout.previous(rightJPanel);
+        layout.previous(rightJPanel);
     }//GEN-LAST:event_submitBtnActionPerformed
-
+    
+    /*private void backAction() {
+        rightJPanel.remove(this);
+        Component[] componentArray = rightJPanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CustomerLoginJPanel customerLoginJPanel = (CustomerLoginJPanel) component;
+        CardLayout layout = (CardLayout) rightJPanel.getLayout();
+        layout.previous(rightJPanel);
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPassengerBtn;
