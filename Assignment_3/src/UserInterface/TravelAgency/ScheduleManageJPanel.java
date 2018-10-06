@@ -55,8 +55,6 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
             }
         }
     }
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,7 +95,7 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         jLabel4.setText("Master Schedule List");
 
         changeScheduleBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        changeScheduleBtn.setText("Change Schedule");
+        changeScheduleBtn.setText("Change Schedule>>");
         changeScheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeScheduleBtnActionPerformed(evt);
@@ -119,10 +117,10 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
+                        .addGap(391, 391, 391)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
+                        .addGap(205, 205, 205)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(changeScheduleBtn)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,15 +130,15 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(92, 92, 92)
                 .addComponent(jLabel4)
-                .addGap(74, 74, 74)
+                .addGap(56, 56, 56)
                 .addComponent(jButton1)
-                .addGap(39, 39, 39)
+                .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(changeScheduleBtn)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

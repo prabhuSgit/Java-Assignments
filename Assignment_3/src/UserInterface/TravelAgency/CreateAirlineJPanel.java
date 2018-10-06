@@ -85,7 +85,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
+                        .addGap(226, 226, 226)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,16 +102,16 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cancelBtn))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
+                        .addGap(288, 288, 288)
                         .addComponent(jLabel4)))
                 .addContainerGap(230, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(104, 104, 104)
                 .addComponent(jLabel4)
-                .addGap(51, 51, 51)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameAirlineTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -127,13 +127,13 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAirlineBtn)
                     .addComponent(cancelBtn))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAirlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAirlineBtnActionPerformed
         // TODO add your handling code here:
-         if(nameAirlineTxtField.getText().isEmpty() || codeAirlineTxtField.getText().isEmpty() || 
+        if(nameAirlineTxtField.getText().isEmpty() || codeAirlineTxtField.getText().isEmpty() || 
             desAirlineTxtField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please add all the details!");
         }else{

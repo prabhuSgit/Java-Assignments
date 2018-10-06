@@ -27,17 +27,17 @@ public class UserDirectory {
         this.userDirectory = userDirectory;
     }
     
-    public Customer assUser(){
+    public Customer addUser(){
         Customer newUser = new Customer();
         userDirectory.add(newUser);
         return newUser;
     }
     
-    public void deleteFlight(Customer user){
+    public void deleteUser(Customer user){
         userDirectory.remove(user);
     }
     
-    public Customer searchFlight(String name){
+    public Customer searchUser(String name){
         for(Customer user : this.userDirectory){
             if(user.getFlightCode().equalsIgnoreCase(name)){
                 return user;

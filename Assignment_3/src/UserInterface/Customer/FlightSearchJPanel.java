@@ -95,7 +95,7 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         toLocationDropDown.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         toLocationDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select From>", "Boston", "New York", "Washingtone" }));
 
-        flightSearchTbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        flightSearchTbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         flightSearchTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -115,7 +115,7 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(flightSearchTbl);
 
         bookBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bookBtn.setText("Book");
+        bookBtn.setText("Next>>");
         bookBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookBtnActionPerformed(evt);
@@ -145,13 +145,13 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(326, 326, 326)
+                        .addGap(464, 464, 464)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(213, 213, 213)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(searchBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,31 +160,33 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(toLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(bookBtn, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(244, 244, 244)
+                                    .addComponent(bookBtn)))
                             .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(99, 99, 99)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(69, 69, 69)
                 .addComponent(backBtn)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(toLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(fromLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchBtn)
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(searchBtn)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(bookBtn)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,7 +206,7 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectRow = flightSearchTbl.getSelectedRow();
         if(selectRow<0){
-            JOptionPane.showMessageDialog(null, "Please select a Row");
+            JOptionPane.showMessageDialog(null, "Please select a Flight");
         }else{
             Airline airline = (Airline)flightSearchTbl.getValueAt(selectRow, 0);
             Flight flight = (Flight)flightSearchTbl.getValueAt(selectRow, 1);

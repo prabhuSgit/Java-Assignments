@@ -23,6 +23,10 @@ public class Flight {
     private ArrayList<Customer> customerDirectory;
     private String status;
 
+    public Flight(){
+        customerDirectory = new ArrayList<Customer>();
+    }
+    
     public String getStatus() {
         return status;
     }
