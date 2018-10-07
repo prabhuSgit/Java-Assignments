@@ -27,6 +27,10 @@ public class Flight {
         customerDirectory = new ArrayList<Customer>();
     }
     
+    public void seatDecrease(){
+        seats--;
+    }
+    
     public String getStatus() {
         return status;
     }

@@ -179,29 +179,47 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        String errorMsg = "";
+        int count = 0;
         if(flightNameTxtField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please add all the details!");
-        }else{
+            errorMsg = errorMsg.concat("Please add all the details!\n");
+        }
+            /*flightNameTxtField.getText();
             
-            flightNameTxtField.getText();
-            /*
             try{
             Integer.parseInt(seatsTxtField.getText());
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Only numbers are allowed for Seats");
                 return;
             }*/
-             
+        if(fromDropDown.getSelectedItem().equals("<Select a City>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select From city\n");
+        }
+        if(toDropDown.getSelectedItem().equals("<Select a City>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select To city\n");
+        }
+        if(scheduleDropDown.getSelectedItem().equals("<Select Schedule>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select Flight Schedule\n");
+        }if(fromDropDown.getSelectedItem() == toDropDown.getSelectedItem()){
+            count++;
+            errorMsg=errorMsg.concat("From and To location cant be same");
+        }
+        if(count != 0){
+            JOptionPane.showMessageDialog(null, errorMsg,"Incomplete entry!",JOptionPane.ERROR_MESSAGE);
+        }else{
             Flight newFlight = airline.addFlight();
             newFlight.setFlightCode(flightNameTxtField.getText());
             newFlight.setFromLocation((String)fromDropDown.getSelectedItem());
             newFlight.setToLocation((String)toDropDown.getSelectedItem());
-            /*newFlight.setSeats(Integer.parseInt(seatsTxtField.getText()));*/
+                /*newFlight.setSeats(Integer.parseInt(seatsTxtField.getText()));*/
             newFlight.setSchedule((String)scheduleDropDown.getSelectedItem());
             newFlight.setAirline(airline.getName());
             newFlight.setStatus("Available");
             
-            /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
+                /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
             JOptionPane.showMessageDialog(null, "Airline added successfully!");
             
             rightJPanel.remove(this);

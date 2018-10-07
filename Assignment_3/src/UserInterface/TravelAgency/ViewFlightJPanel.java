@@ -237,14 +237,47 @@ public class ViewFlightJPanel extends javax.swing.JPanel {
         statusDropDown.setEditable(false);
         saveBtn.setEnabled(false);
         updateBtn.setEnabled(true);
-
-        flight.setFlightCode(flightCodeTxtField.getText());
-        flight.setFromLocation((String)fromDropDown.getSelectedItem());
-        flight.setToLocation((String)toDropDown.getSelectedItem());
-        flight.setSchedule((String)scheduleDropDown.getSelectedItem());
-        flight.setStatus((String)statusDropDown.getSelectedItem());
-        JOptionPane.showMessageDialog(null, "Flight details updated successfully");
-
+        
+        String errorMsg = "";
+        int count = 0;
+        if(flightCodeTxtField.getText().isEmpty()){
+            errorMsg = errorMsg.concat("Please add all the details!\n");
+        }
+            /*flightNameTxtField.getText();
+            
+            try{
+            Integer.parseInt(seatsTxtField.getText());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Only numbers are allowed for Seats");
+                return;
+            }*/
+        if(fromDropDown.getSelectedItem().equals("<Select a City>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select From city\n");
+        }
+        if(toDropDown.getSelectedItem().equals("<Select a City>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select To city\n");
+        }
+        if(scheduleDropDown.getSelectedItem().equals("<Select Schedule>")){
+            count++;
+            errorMsg=errorMsg.concat("Please select Flight Schedule\n");
+        }if(fromDropDown.getSelectedItem() == toDropDown.getSelectedItem()){
+            count++;
+            errorMsg=errorMsg.concat("From and To location cant be same");
+        }
+        if(count != 0){
+            JOptionPane.showMessageDialog(null, errorMsg,"Incomplete entry!",JOptionPane.ERROR_MESSAGE);
+        }else{
+            
+            flight.setFlightCode(flightCodeTxtField.getText());
+            flight.setFromLocation((String)fromDropDown.getSelectedItem());
+            flight.setToLocation((String)toDropDown.getSelectedItem());
+            flight.setSchedule((String)scheduleDropDown.getSelectedItem());
+            flight.setStatus((String)statusDropDown.getSelectedItem());
+            JOptionPane.showMessageDialog(null, "Flight details updated successfully");
+        }
+   
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed

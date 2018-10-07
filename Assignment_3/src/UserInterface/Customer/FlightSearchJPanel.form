@@ -51,7 +51,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="132" max="32767" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,7 +127,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="&lt;Select From&gt;"/>
+            <StringItem index="0" value="&lt;Select To&gt;"/>
             <StringItem index="1" value="Boston"/>
             <StringItem index="2" value="New York"/>
             <StringItem index="3" value="Washingtone"/>

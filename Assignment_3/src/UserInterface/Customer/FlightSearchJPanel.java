@@ -38,24 +38,34 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         dtm = (DefaultTableModel)flightSearchTbl.getModel();
         dtm.setRowCount(0);
         int count = 0;
-        for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
-            for(Flight flight : airline.getFlightDirectory()){
-                if (fromLocationDropDown.getSelectedItem().equals(flight.getFromLocation()) && 
-                    toLocationDropDown.getSelectedItem().equals(flight.getToLocation())){
-                        Object[] row = new Object[dtm.getColumnCount()];
-                        row[0]=airline;
-                        row[1]=flight;
-                        row[2]=flight.getFromLocation();
-                        row[3]=flight.getToLocation();
-                        row[4]=flight.getSchedule();
-                        dtm.addRow(row);
-                        count =1;
+        if(fromLocationDropDown.getSelectedItem().equals("<Select From>") || 
+           toLocationDropDown.getSelectedItem().equals("<Select To>")){
+            
+            JOptionPane.showMessageDialog(null, "Select From/To appropriatly");
+            
+        }else{
+            
+            for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
+                for(Flight flight : airline.getFlightDirectory()){
+                    if (fromLocationDropDown.getSelectedItem().equals(flight.getFromLocation()) && 
+                        toLocationDropDown.getSelectedItem().equals(flight.getToLocation())){
+                            Object[] row = new Object[dtm.getColumnCount()];
+                            row[0]=airline;
+                            row[1]=flight;
+                            row[2]=flight.getFromLocation();
+                            row[3]=flight.getToLocation();
+                            row[4]=flight.getSchedule();
+                            dtm.addRow(row);
+                            count =1;
+                    }
                 }
             }
-        }
-        if(count == 0){
+            if(count == 0){
             JOptionPane.showMessageDialog(null, "Sorry, no flights found!");
+            }
+            
         }
+        
     }
     
     /**
@@ -93,7 +103,7 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         fromLocationDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select From>", "Boston", "New York", "Washingtone" }));
 
         toLocationDropDown.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        toLocationDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select From>", "Boston", "New York", "Washingtone" }));
+        toLocationDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select To>", "Boston", "New York", "Washingtone" }));
 
         flightSearchTbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         flightSearchTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -165,7 +175,7 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
                                     .addGap(244, 244, 244)
                                     .addComponent(bookBtn)))
                             .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

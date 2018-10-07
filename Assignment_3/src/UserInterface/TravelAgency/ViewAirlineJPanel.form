@@ -52,16 +52,16 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="backBtn" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="saveBtn" min="-2" pref="67" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
-                                      <Component id="viewFlightDetailsBtn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="saveBtn" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
+                              <Component id="viewFlightDetailsBtn" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

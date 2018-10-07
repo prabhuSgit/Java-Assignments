@@ -13,6 +13,7 @@ import Business.TravelAgency.UserDirectory;
 import UserInterface.TravelAgency.ViewAirlineJPanel;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +34,8 @@ public class FlightBookJPanel extends javax.swing.JPanel {
     private int seatNo = 1;
     private DefaultTableModel dtm;
     private UserDirectory userDirectory;
+    private ArrayList<Customer> custArray;
+    private Customer customer;
     
     FlightBookJPanel(JPanel rightJPanel, Airline airline, Flight flight) {
         initComponents();
@@ -42,42 +45,17 @@ public class FlightBookJPanel extends javax.swing.JPanel {
         this.flight=flight;
         this.dtm=dtm;
         
-        
         fromLocationTxtField.setText(flight.getFromLocation());
         toLocationTxtField.setText(flight.getToLocation());
         flightCodeTxtField.setText(flight.getFlightCode());
         airlinesNameTxtField.setText(airline.getName());
         seatAvailabilityTxtField.setText(String.valueOf(flight.getSeats()));
-    }
-    
-    public void populate(){
+        
         dtm = (DefaultTableModel)passengerTbl.getModel();
         dtm.setRowCount(0);
-        
-        Object[] row = new Object[dtm.getColumnCount()];
-                 row[0]=firstNameTxtField.getText();
-                 /*row[1]=customer.getCustomerFirstName();*/
-                 row[1]=lastNameTxtField.getText();
-                 row[2]=ageTxtField.getText();;
-                 /*row[3]=.getSeat();*/
-                 dtm.addRow(row);
-        
-        /*for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
-            for(Flight flight : airline.getFlightDirectory()){
-                for(Customer customer : flight.getCustomerDirectory()){
-                    Object[] row = new Object[dtm.getColumnCount()];
-                    row[0]=customer;
-                    /*row[1]=customer.getCustomerFirstName();*//*
-                    row[1]=customer.getCustomerLastName();
-                    row[2]=customer.getCustomerAge();
-                    row[3]=customer.getSeat();
-                    dtm.addRow(row);
-                
-                }
-            }*/
-        
+        custArray = new ArrayList<Customer>();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -238,10 +216,9 @@ public class FlightBookJPanel extends javax.swing.JPanel {
                                             .addComponent(jLabel9)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(addPassengerBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(jScrollPane1))))
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane1)
+                                        .addComponent(addPassengerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -314,49 +291,65 @@ public class FlightBookJPanel extends javax.swing.JPanel {
 
     private void addPassengerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPassengerBtnActionPerformed
         // TODO add your handling code here:
-        if(firstNameTxtField.getText().isEmpty() || lastNameTxtField.getText().isEmpty() ||
-           ageTxtField.getText().isEmpty()){
+        int count = 0;
+        if(flight.getSeats() != 0){
+            if(firstNameTxtField.getText().isEmpty() || 
+               lastNameTxtField.getText().isEmpty() ||
+               ageTxtField.getText().isEmpty()){
             
-            JOptionPane.showMessageDialog(null, "Please add all the details!");
+                JOptionPane.showMessageDialog(null, "Please add all the details!");
         
-        }else{
-            try{
-                Integer.parseInt(ageTxtField.getText());
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Age: Only numbers are allowed");
-                    return;
+            }else{
+                try{
+                    Integer.parseInt(ageTxtField.getText());
+                    count++;
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(null, "Age: Only numbers are allowed");
+                        return;
+                    }
                 }
+            if(count == 1){
+                Object[] row = new Object[dtm.getColumnCount()];
+                row[0]=firstNameTxtField.getText();
+                row[1]=lastNameTxtField.getText();
+                row[2]=ageTxtField.getText();;
+                row[3]=flight.getSeats();
+                dtm.addRow(row);
+                 
+                customer = new Customer(); 
+                customer.setCustomerFirstName(firstNameTxtField.getText());
+                customer.setCustomerLastName(lastNameTxtField.getText());
+                customer.setCustomerAge(Integer.parseInt(ageTxtField.getText()));
+                customer.setAirline(flight.getAirline());
+                customer.setFlightCode(flight.getFlightCode());
+                customer.setFromLocation(flight.getFromLocation());
+                customer.setToLocation(flight.getToLocation());
+                customer.setSeat(seatNo);
+                flight.seatDecrease();
+                seatNo++;
+                custArray.add(customer);
             }
-        populate();
-        
-        
-        /*    
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Sorry, the flight is full!");
+        }
         firstNameTxtField.setText("");
         lastNameTxtField.setText("");
         ageTxtField.setText("");
-        */
     }//GEN-LAST:event_addPassengerBtnActionPerformed
 
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        // TODO add your handling code here:
-        Customer customer = flight.addCustomer();
-        
-        customer.setCustomerFirstName(firstNameTxtField.getText());
-        customer.setCustomerLastName(lastNameTxtField.getText());
-        customer.setCustomerAge(Integer.parseInt(ageTxtField.getText()));
-        customer.setAirline(flight.getAirline());
-        customer.setFlightCode(flight.getFlightCode());
-        customer.setFromLocation(flight.getFromLocation());
-        customer.setToLocation(flight.getToLocation());
-        customer.setSeat(seatNo);
-        seatNo++;
-        
+    public void book(){
+        flight.setCustomerDirectory(custArray);
         JOptionPane.showMessageDialog(null, "Flight booked!");
-        
         rightJPanel.remove(this);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.previous(rightJPanel);
-        layout.previous(rightJPanel);
+    }
+    
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        /*Customer*/
+        book();
     }//GEN-LAST:event_submitBtnActionPerformed
     
     /*private void backAction() {
