@@ -51,6 +51,7 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
                 row[2]=flight.getFromLocation();
                 row[3]=flight.getToLocation();
                 row[4]=flight.getSchedule();
+                row[5]=flight.getStatus();
                 dtm.addRow(row);
             }
         }
@@ -68,7 +69,7 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         flightScheduleTbl = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         changeScheduleBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -78,11 +79,11 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Airline", "Flight", "From location", "To location", "Schedule"
+                "Airline", "Flight", "From location", "To location", "Schedule", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false
+                false, false, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -102,11 +103,11 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("<Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        backBtn.setText("<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
@@ -123,9 +124,9 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
                         .addGap(205, 205, 205)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(changeScheduleBtn)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
-                .addContainerGap(197, Short.MAX_VALUE))
+                            .addComponent(backBtn)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +134,7 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
                 .addGap(92, 92, 92)
                 .addComponent(jLabel4)
                 .addGap(56, 56, 56)
-                .addComponent(jButton1)
+                .addComponent(backBtn)
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -158,18 +159,18 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_changeScheduleBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         rightJPanel.remove(this);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
         layout.previous(rightJPanel);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton changeScheduleBtn;
     private javax.swing.JTable flightScheduleTbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

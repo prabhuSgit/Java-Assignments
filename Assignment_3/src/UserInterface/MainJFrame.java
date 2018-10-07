@@ -95,7 +95,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(travelAgencyBtn)
                 .addGap(33, 33, 33)
                 .addComponent(customerBookingBtn)
-                .addContainerGap(555, Short.MAX_VALUE))
+                .addContainerGap(472, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftJPanel);
@@ -112,7 +112,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
         );
 
         pack();

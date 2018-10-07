@@ -37,11 +37,11 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
     public void populate(){
         dtm = (DefaultTableModel)flightSearchTbl.getModel();
         dtm.setRowCount(0);
-        
+        int count = 0;
         for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
             for(Flight flight : airline.getFlightDirectory()){
-                if (flight.getFromLocation() == fromLocationDropDown.getSelectedItem() || 
-                    flight.getToLocation() == toLocationDropDown.getSelectedItem()){
+                if (fromLocationDropDown.getSelectedItem().equals(flight.getFromLocation()) && 
+                    toLocationDropDown.getSelectedItem().equals(flight.getToLocation())){
                         Object[] row = new Object[dtm.getColumnCount()];
                         row[0]=airline;
                         row[1]=flight;
@@ -49,12 +49,12 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
                         row[3]=flight.getToLocation();
                         row[4]=flight.getSchedule();
                         dtm.addRow(row);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Sorry, no Flights found!");
-                    
+                        count =1;
                 }
             }
+        }
+        if(count == 0){
+            JOptionPane.showMessageDialog(null, "Sorry, no flights found!");
         }
     }
     
