@@ -297,14 +297,14 @@ public class FlightBookJPanel extends javax.swing.JPanel {
                lastNameTxtField.getText().isEmpty() ||
                ageTxtField.getText().isEmpty()){
             
-                JOptionPane.showMessageDialog(null, "Please add all the details!");
+                JOptionPane.showMessageDialog(null, "Please add all the details!", "Error", JOptionPane.ERROR_MESSAGE);
         
             }else{
                 try{
                     Integer.parseInt(ageTxtField.getText());
                     count++;
                     }catch(Exception e){
-                        JOptionPane.showMessageDialog(null, "Age: Only numbers are allowed");
+                        JOptionPane.showMessageDialog(null, "Age: Only numbers are allowed", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 }
@@ -341,9 +341,10 @@ public class FlightBookJPanel extends javax.swing.JPanel {
     public void book(){
         flight.setCustomerDirectory(custArray);
         JOptionPane.showMessageDialog(null, "Flight booked!");
-        rightJPanel.remove(this);
+        FinalJPanel finalPanel  = new FinalJPanel();
+        rightJPanel.add("ScheduleManageJPanel", finalPanel);
         CardLayout layout = (CardLayout)rightJPanel.getLayout();
-        layout.previous(rightJPanel);
+        layout.next(rightJPanel);
     }
     
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed

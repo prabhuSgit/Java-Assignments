@@ -147,7 +147,7 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectRow = flightScheduleTbl.getSelectedRow();
         if(selectRow<0){
-            JOptionPane.showMessageDialog(null, "Please select a Row");
+            JOptionPane.showMessageDialog(null, "Please select a Row", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             
             Airline airline = (Airline)flightScheduleTbl.getValueAt(selectRow, 0);

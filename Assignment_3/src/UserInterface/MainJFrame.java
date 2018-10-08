@@ -59,7 +59,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftJPanel.setBackground(new java.awt.Color(204, 204, 255));
+        leftJPanel.setBackground(new java.awt.Color(153, 153, 255));
 
         travelAgencyBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         travelAgencyBtn.setText("Travel Agency");
@@ -91,16 +91,16 @@ public class MainJFrame extends javax.swing.JFrame {
         leftJPanelLayout.setVerticalGroup(
             leftJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftJPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addGap(214, 214, 214)
                 .addComponent(travelAgencyBtn)
                 .addGap(33, 33, 33)
                 .addComponent(customerBookingBtn)
-                .addContainerGap(472, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftJPanel);
 
-        rightJPanel.setBackground(new java.awt.Color(204, 204, 204));
+        rightJPanel.setBackground(new java.awt.Color(255, 255, 255));
         rightJPanel.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(rightJPanel);
 
@@ -112,7 +112,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
 
         pack();

@@ -87,7 +87,7 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Adding Flight");
 
-        fromDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York" }));
+        fromDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York", "Washingtone" }));
 
         addBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addBtn.setText("Add");
@@ -105,7 +105,7 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        toDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York" }));
+        toDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select a City>", "Boston", "New York", "Washingtone" }));
 
         scheduleDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select Schedule>", "Morning", "Afternoon", "Evening" }));
 
@@ -220,7 +220,7 @@ public class CreateFlightJPanel extends javax.swing.JPanel {
             newFlight.setStatus("Available");
             
                 /*JOptionPane.showMessageDialog(null, fromDropDown.getSelectedItem());*/
-            JOptionPane.showMessageDialog(null, "Airline added successfully!");
+            JOptionPane.showMessageDialog(null, "Airline added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             
             rightJPanel.remove(this);
             CardLayout layout = (CardLayout)rightJPanel.getLayout();

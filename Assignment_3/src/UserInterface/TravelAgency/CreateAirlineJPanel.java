@@ -152,7 +152,7 @@ public class CreateAirlineJPanel extends javax.swing.JPanel {
             airline.setCode(Integer.parseInt(codeAirlineTxtField.getText()));
             airline.setDescription(desAirlineTxtField.getText());
             
-            JOptionPane.showMessageDialog(null, "Airline added successfully!");
+            JOptionPane.showMessageDialog(null, "Airline added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             
             rightJPanel.remove(this);
             CardLayout layout = (CardLayout)rightJPanel.getLayout();

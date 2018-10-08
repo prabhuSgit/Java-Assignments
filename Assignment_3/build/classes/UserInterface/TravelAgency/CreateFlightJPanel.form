@@ -171,10 +171,11 @@
     <Component class="javax.swing.JComboBox" name="fromDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="4">
             <StringItem index="0" value="&lt;Select a City&gt;"/>
             <StringItem index="1" value="Boston"/>
             <StringItem index="2" value="New York"/>
+            <StringItem index="3" value="Washingtone"/>
           </StringArray>
         </Property>
       </Properties>
@@ -204,10 +205,11 @@
     <Component class="javax.swing.JComboBox" name="toDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="4">
             <StringItem index="0" value="&lt;Select a City&gt;"/>
             <StringItem index="1" value="Boston"/>
             <StringItem index="2" value="New York"/>
+            <StringItem index="3" value="Washingtone"/>
           </StringArray>
         </Property>
       </Properties>

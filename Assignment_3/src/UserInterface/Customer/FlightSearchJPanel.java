@@ -39,33 +39,37 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
         int count = 0;
         if(fromLocationDropDown.getSelectedItem().equals("<Select From>") || 
-           toLocationDropDown.getSelectedItem().equals("<Select To>")){
+           toLocationDropDown.getSelectedItem().equals("<Select To>") ||
+           scheduleDropDown.getSelectedItem().equals("<Select Schedule>")){
             
-            JOptionPane.showMessageDialog(null, "Select From/To appropriatly");
+            JOptionPane.showMessageDialog(null, "Select From:/To: appropriatly");
             
         }else{
-            
-            for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
-                for(Flight flight : airline.getFlightDirectory()){
-                    if (fromLocationDropDown.getSelectedItem().equals(flight.getFromLocation()) && 
-                        toLocationDropDown.getSelectedItem().equals(flight.getToLocation())){
-                            Object[] row = new Object[dtm.getColumnCount()];
-                            row[0]=airline;
-                            row[1]=flight;
-                            row[2]=flight.getFromLocation();
-                            row[3]=flight.getToLocation();
-                            row[4]=flight.getSchedule();
-                            dtm.addRow(row);
-                            count =1;
+            try{
+                for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
+                    for(Flight flight : airline.getFlightDirectory()){
+                        if (fromLocationDropDown.getSelectedItem().equals(flight.getFromLocation()) && 
+                            toLocationDropDown.getSelectedItem().equals(flight.getToLocation()) &&
+                            scheduleDropDown.getSelectedItem().equals(flight.getSchedule())){
+                                Object[] row = new Object[dtm.getColumnCount()];
+                                row[0]=airline;
+                                row[1]=flight;
+                                row[2]=flight.getFromLocation();
+                                row[3]=flight.getToLocation();
+                                row[4]=flight.getSchedule();
+                                dtm.addRow(row);
+                                count =1;
+                        }
                     }
                 }
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(null, "Sorry, there are no flights yet!");
             }
+            
             if(count == 0){
             JOptionPane.showMessageDialog(null, "Sorry, no flights found!");
             }
-            
         }
-        
     }
     
     /**
@@ -87,6 +91,8 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
         bookBtn = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        scheduleDropDown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -148,6 +154,12 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Schedule:");
+
+        scheduleDropDown.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        scheduleDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Select Schedule>", "Morning", "Afternoon", "Evening" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,20 +174,26 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(searchBtn)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(fromLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(145, 145, 145)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(toLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane1)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(244, 244, 244)
-                                    .addComponent(bookBtn)))
+                                    .addGap(250, 250, 250)
+                                    .addComponent(bookBtn))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(scheduleDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(fromLocationDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGap(102, 102, 102)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(toLocationDropDown, 0, 147, Short.MAX_VALUE)))
                             .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,13 +208,17 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(fromLocationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(scheduleDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addComponent(searchBtn)
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(bookBtn)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -235,7 +257,9 @@ public class FlightSearchJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox scheduleDropDown;
     private javax.swing.JButton searchBtn;
     private javax.swing.JComboBox toLocationDropDown;
     // End of variables declaration//GEN-END:variables

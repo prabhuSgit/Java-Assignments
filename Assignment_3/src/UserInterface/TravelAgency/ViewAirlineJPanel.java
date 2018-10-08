@@ -82,6 +82,7 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         viewFlightDetailsBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -168,6 +169,14 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Flights");
 
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,7 +213,9 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
                                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(updateBtn)
-                                .addGap(273, 273, 273)
+                                .addGap(196, 196, 196)
+                                .addComponent(btnDelete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(viewFlightDetailsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(130, 130, 130))
         );
@@ -235,7 +246,8 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn)
                     .addComponent(updateBtn)
-                    .addComponent(viewFlightDetailsBtn))
+                    .addComponent(viewFlightDetailsBtn)
+                    .addComponent(btnDelete))
                 .addContainerGap(198, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -287,7 +299,7 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectRow = flightTbl.getSelectedRow();
         if(selectRow<0){
-            JOptionPane.showMessageDialog(null, "Please select a Row");
+            JOptionPane.showMessageDialog(null, "Please select a Row", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             Flight flight = (Flight)flightTbl.getValueAt(selectRow, 0);
             ViewFlightJPanel veFlight = new ViewFlightJPanel(rightJPanel, flight, airline);
@@ -298,11 +310,28 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_viewFlightDetailsBtnActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = flightTbl.getSelectedRow();
+        if(selectedRow>=0){
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?","Warning",selectionButton);
+            if(selectionResult == JOptionPane.YES_OPTION){
+                Flight flight = (Flight)flightTbl.getValueAt(selectedRow, 0);
+                airline.deleteFlight(flight);
+                populate();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a Row!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField airlineCodeTextField;
     private javax.swing.JTextField airlineNameTextField;
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JTextField descriptionTextField;
     private javax.swing.JTable flightTbl;
     private javax.swing.JLabel jLabel1;

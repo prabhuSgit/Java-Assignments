@@ -79,6 +79,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         viewAirlineBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -128,6 +129,14 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,6 +154,8 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(addFlightBtn)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnDelete)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(viewAirlineBtn))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(127, Short.MAX_VALUE))
@@ -158,10 +169,11 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
                 .addComponent(backBtn)
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addFlightBtn)
-                    .addComponent(viewAirlineBtn))
+                    .addComponent(viewAirlineBtn)
+                    .addComponent(btnDelete))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -202,7 +214,7 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectRow = airlineTbl.getSelectedRow();
         if(selectRow<0){
-            JOptionPane.showMessageDialog(null, "Please select a Row");
+            JOptionPane.showMessageDialog(null, "Please select a Row", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
             Airline airline = (Airline)airlineTbl.getValueAt(selectRow, 0);
             ViewAirlineJPanel vPanel = new ViewAirlineJPanel(rightJPanel, airline, airlineDirectory);
@@ -212,11 +224,28 @@ public class AirlinesManageJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_viewAirlineBtnActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = airlineTbl.getSelectedRow();
+        if(selectedRow>=0){
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
+            if(selectionResult == JOptionPane.YES_OPTION){
+                Airline airline = (Airline)airlineTbl.getValueAt(selectedRow, 0);
+                airlineDirectory.deleteAirline(airline);
+                populate();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a Row!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFlightBtn;
     private javax.swing.JTable airlineTbl;
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton viewAirlineBtn;

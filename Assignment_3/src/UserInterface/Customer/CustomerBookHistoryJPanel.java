@@ -5,6 +5,13 @@
  */
 package UserInterface.Customer;
 
+import Business.Customer.Customer;
+import Business.TravelAgency.Airline;
+import Business.TravelAgency.AirlineDirectory;
+import Business.TravelAgency.Flight;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Prabhu Surbamanian
@@ -14,10 +21,41 @@ public class CustomerBookHistoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerBookHistoryJPanel
      */
+    private AirlineDirectory airlineDirectory;
+    private JPanel rightJPanel;
+    private DefaultTableModel dtm;
+    
     public CustomerBookHistoryJPanel() {
-        initComponents();
+        
     }
 
+    CustomerBookHistoryJPanel(JPanel rightJPanel, AirlineDirectory airlineDirectory) {
+        initComponents();
+        this.airlineDirectory = airlineDirectory;
+        this.rightJPanel = rightJPanel;
+        populate();
+    }
+
+    public void populate(){
+        dtm = (DefaultTableModel)bookedHistory.getModel();
+        dtm.setRowCount(0);
+        
+        for(Airline airline : airlineDirectory.getAirlinerDiroctory()){
+            for(Flight flight : airline.getFlightDirectory()){
+                for(Customer customer : flight.getCustomerDirectory()){
+                    Object[] row = new Object[dtm.getColumnCount()];
+                    row[0]=flight.getFlightCode();
+                    row[1]=airline.getName();
+                    row[2]=customer.getCustomerFirstName();
+                    row[3]=customer.getCustomerLastName();
+                    row[4]=customer.getFromLocation();
+                    row[5]=customer.getToLocation();
+                    dtm.addRow(row);
+                
+                }
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +69,9 @@ public class CustomerBookHistoryJPanel extends javax.swing.JPanel {
         bookedHistory = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        bookedHistory.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         bookedHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -57,22 +98,22 @@ public class CustomerBookHistoryJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
-                .addGap(97, 97, 97))
+                .addGap(142, 142, 142)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 847, Short.MAX_VALUE)
+                .addGap(94, 94, 94))
             .addGroup(layout.createSequentialGroup()
-                .addGap(397, 397, 397)
+                .addGap(436, 436, 436)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(111, 111, 111)
                 .addComponent(jLabel1)
-                .addGap(75, 75, 75)
+                .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

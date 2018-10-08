@@ -269,7 +269,7 @@ public class ChangeScheduleJPanel extends javax.swing.JPanel {
         flight.setSchedule((String)scheduleDropDown.getSelectedItem());
         flight.setStatus((String)statusDropDown.getSelectedItem());
         
-        JOptionPane.showMessageDialog(null, "Flight details updated successfully");
+        JOptionPane.showMessageDialog(null, "Flight details updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
