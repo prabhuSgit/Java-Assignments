@@ -45,6 +45,9 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
     public void populate(){
         dtm = (DefaultTableModel)flightTbl.getModel();
         dtm.setRowCount(0);
+        flightTbl.setColumnSelectionAllowed(true);
+        flightTbl.setRowSelectionAllowed(true);
+        flightTbl.setCellSelectionEnabled(true);
         
         for(Flight flight : airline.getFlightDirectory()){
             Object[] row = new Object[dtm.getColumnCount()];
@@ -98,6 +101,7 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         descriptionTextField.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         descriptionTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        flightTbl.setAutoCreateRowSorter(true);
         flightTbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         flightTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,6 +119,7 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        flightTbl.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(flightTbl);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

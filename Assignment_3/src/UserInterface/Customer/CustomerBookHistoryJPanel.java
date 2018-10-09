@@ -48,8 +48,9 @@ public class CustomerBookHistoryJPanel extends javax.swing.JPanel {
                     row[1]=airline.getName();
                     row[2]=customer.getCustomerFirstName();
                     row[3]=customer.getCustomerLastName();
-                    row[4]=customer.getFromLocation();
-                    row[5]=customer.getToLocation();
+                    row[4]=customer.getSeat();
+                    row[5]=customer.getFromLocation();
+                    row[6]=customer.getToLocation();
                     dtm.addRow(row);
                 
                 }
@@ -77,11 +78,11 @@ public class CustomerBookHistoryJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Flight Code", "Airline", "Passenger Name", "Passenger Name", "From Location", "To Location"
+                "Flight Code", "Airline", "First Name", "Last Name", "Seat No.", "From Location", "To Location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

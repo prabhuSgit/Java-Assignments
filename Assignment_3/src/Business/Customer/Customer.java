@@ -17,7 +17,7 @@ public class Customer {
     private String flightCode;
     private String fromLocation;
     private String toLocation;
-    private Integer seat;
+    private String seat;
 
     
     public String getCustomerFirstName() {
@@ -76,11 +76,11 @@ public class Customer {
         this.toLocation = toLocation;
     }
 
-    public Integer getSeat() {
+    public String getSeat() {
         return seat;
     }
 
-    public void setSeat(Integer seat) {
+    public void setSeat(String seat) {
         this.seat = seat;
     }
     

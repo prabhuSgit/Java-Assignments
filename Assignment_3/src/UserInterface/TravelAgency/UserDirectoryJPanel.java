@@ -41,10 +41,10 @@ public class UserDirectoryJPanel extends javax.swing.JPanel {
                 for(Customer customer : flight.getCustomerDirectory()){
                     Object[] row = new Object[dtm.getColumnCount()];
                     row[0]=customer;
-                    /*row[1]=customer.getCustomerFirstName();*/
                     row[1]=customer.getCustomerLastName();
-                    row[2]=customer.getCustomerAge();
-                    row[3]=customer.getAirline();
+                    row[2]=customer.getSeat();
+                    row[3]=customer.getFlightCode();
+                    row[4]=customer.getAirline();
                     dtm.addRow(row);
                 
                 }
@@ -75,11 +75,11 @@ public class UserDirectoryJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "First Name", "Last Name", "Flight Code", "Airline"
+                "First Name", "Last Name", "Seat No.", "Flight Code", "Airline"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -112,12 +112,12 @@ public class UserDirectoryJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(192, 192, 192)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblSearchAccNo)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblSearchAccNo)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,9 +129,9 @@ public class UserDirectoryJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSearchAccNo)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

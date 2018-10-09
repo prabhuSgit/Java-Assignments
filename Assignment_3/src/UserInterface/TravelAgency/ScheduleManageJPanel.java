@@ -135,11 +135,11 @@ public class ScheduleManageJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addGap(56, 56, 56)
                 .addComponent(backBtn)
-                .addGap(72, 72, 72)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(changeScheduleBtn)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
