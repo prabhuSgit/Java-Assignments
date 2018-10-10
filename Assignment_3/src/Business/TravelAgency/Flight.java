@@ -30,14 +30,7 @@ public class Flight {
         seat = new String[][]{{"W1", "M2", "A3"},
                               {"W4", "M5", "A6"},
                               {"W7", "M8", "A9"}};
-    /*
-        int count = 1;
-        for(int i=0;i<5;i++){
-            for(int j=0;j<5;j++){
-                seat[i][j]=count;
-                count++;
-            }
-        }*/
+    
     }
     
     public void seatDecrease(){

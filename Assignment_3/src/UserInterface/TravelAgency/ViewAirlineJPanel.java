@@ -52,11 +52,10 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
         for(Flight flight : airline.getFlightDirectory()){
             Object[] row = new Object[dtm.getColumnCount()];
             row[0]=flight;
-            row[1]=flight.getSeats();
-            row[2]=flight.getFromLocation();
-            row[3]=flight.getToLocation();
-            row[4]=flight.getSchedule();
-            row[5]=flight.getStatus();
+            row[1]=flight.getFromLocation();
+            row[2]=flight.getToLocation();
+            row[3]=flight.getSchedule();
+            row[4]=flight.getStatus();
             dtm.addRow(row);
         }
     }
@@ -108,18 +107,18 @@ public class ViewAirlineJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Flight", "Seats", "From Location", "To Location", "Schedule", "Status"
+                "Flight", "From Location", "To Location", "Schedule", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        flightTbl.setCellSelectionEnabled(true);
+        flightTbl.setColumnSelectionAllowed(false);
         jScrollPane1.setViewportView(flightTbl);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
